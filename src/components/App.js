@@ -1,8 +1,15 @@
 import React from "react";
+import Header from "./Header";
+import SearchBar from "./SearchBar";
+import User from "./User";
 
 const App = () => {
     return <>
-        <h1>Hello World!</h1>
+        <Header />
+        <main>
+            <SearchBar />
+            <User />
+        </main>
     </>
 }
 
