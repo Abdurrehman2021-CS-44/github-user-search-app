@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
 import User from "./User";
 import NotFound from "./NotFound"
 
 const App = () => {
     const [userData, setUserData] = useState({});
-    const [user, setUser] = useState("Abdurrehman2021-CS-44");
+    const [user, setUser] = useState("");
     const [change, setChange] = useState(false);
+    const [anotherChange, setAnotherChange] = useState(false);
 
-    const getData = async (username) => {
-        const response = await fetch("https://api.github.com/users/"+username);
+    const searchRef = useRef(null);
+
+    const getData = async () => {
+        const response = await fetch("https://api.github.com/users/"+user.split(" ").join(""));
         const data = await response.json();
         setUserData(data);
     }
@@ -17,12 +20,24 @@ const App = () => {
     const handleChange = (e) => {
         const inputValue = e.target.value;
         setUser(inputValue);
-        console.log(inputValue);
     }
 
     const handleClick = () => {
-        getData(user);
-        setChange(true);
+        if (user === ""){
+            searchRef.current.focus();
+            return;
+        }
+        getData();
+        if (userData !== {}){
+            setChange(true);
+            // setChange(userData.message !== "Not Found");
+        }
+        else {
+            setChange(false);
+        }
+        setAnotherChange(true);
+
+        console.log(userData);
         console.log(userData.name);
         console.log(userData.login);
         console.log(userData.bio);
@@ -38,7 +53,7 @@ const App = () => {
     return <>
         <Header />
         <div className="search-bar">
-            <input className="search-input" type="text" placeholder="Enter username" value={user} onChange={handleChange} />
+            <input className="search-input" ref={searchRef} type="text" placeholder="Enter username" value={user} onChange={handleChange} />
             <button className="search-btn" onClick={handleClick}><i className="fa-solid fa-magnifying-glass fa-xl"></i></button>
         </div>
         {
@@ -56,6 +71,7 @@ const App = () => {
                 avatar_url={userData.avatar_url}
             />
             :
+            anotherChange &&
             <NotFound />
         }
     </>

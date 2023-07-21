@@ -73,7 +73,6 @@ body {
 }
 
 .searched-user-data {
-    display: inline-block;
     margin: 0;
 }
 
@@ -110,13 +109,15 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: start;
-}
-
-.searched-user-socials p i{
     color: white;
 }
 
-.searched-user-socials p i:hover{
+.searched-user-socials p a{
+    color: white;
+    text-decoration: none;
+}
+
+.searched-user-socials p a:hover{
     color: blueviolet;
 }
 
