@@ -1,0 +1,131 @@
+/* background-color: #331f5c !important; */
+
+body {
+    background-color: rgb(20, 29, 47) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    margin-top: 5%;
+    font-size: 60px;
+}
+
+.search-bar {
+    width: 100%;
+    margin: 0;
+}
+
+.search-input {
+    width: 40%;
+    background-color: #331f5c;
+    border: 0;
+    height: 50px;
+    border-radius: 15px 0 0 15px;
+    color: white;
+    padding-left: 20px;
+    padding: 0 0 0 20px;
+    font-size: larger;
+    margin: 0 !important;
+}
+
+.search-btn {
+    height: 50px;
+    width: 60px;
+    border: 0;
+    padding: 0;
+    border-radius: 0 15px 15px 0;
+    background-color: blueviolet;
+    color: white;
+    transition: 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.searched-user {
+    width: 47%;
+    /* height: 320px; */
+    margin: 12px auto;
+    border-radius: 15px;
+    background-color: #331f5c;
+    text-align: left;
+    color: white;
+    padding: 12px 0 20px !important;
+}
+
+.circle-wrapper {
+    width: 150px; /* Set the width of the circle container */
+    height: 150px; /* Set the height of the circle container */
+    border-radius: 50%; /* Create a circle shape */
+    overflow: hidden; /* Clip the image to fit the circle */
+    margin: 10px auto 0; 
+}
+  
+.circle-wrapper img {
+    width: 100%; /* Make the image fill the circle container */
+    height: 100%; /* Make the image fill the circle container */
+    object-fit: contain; /* Maintain the aspect ratio of the image and cover the entire container */
+    background-color: rgb(20, 29, 47) !important;
+}
+
+.searched-user-data {
+    display: inline-block;
+    margin: 0;
+}
+
+.searched-user-data h2{
+    text-align: center;
+    margin: 0;
+}
+
+.searched-user-data a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: blue;
+}
+
+.searched-user-data p{
+    width: 90%;
+    text-align: center;
+    margin: 20px auto 0;
+}
+
+.searched-user-github-data {
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 15px;
+    background-color: rgb(20, 29, 47) !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    text-align: center;
+}
+
+.searched-user-socials {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.searched-user-socials p i{
+    color: white;
+}
+
+.searched-user-socials p i:hover{
+    color: blueviolet;
+}
+
+.error-message {
+    width: 47%;
+    height: 120px;
+    background-color: #331f5c;
+    margin: 20px auto;
+    border-radius: 15px;
+    color: white;
+    padding: 20px 0 30px;
+}

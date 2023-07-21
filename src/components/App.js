@@ -1,15 +1,17 @@
 import React from "react";
 import Header from "./Header";
-import SearchBar from "./SearchBar";
 import User from "./User";
+import NotFound from "./NotFound"
 
 const App = () => {
     return <>
         <Header />
-        <main>
-            <SearchBar />
-            <User />
-        </main>
+        <div className="search-bar">
+            <input className="search-input" type="text" placeholder="Enter username" />
+            <button className="search-btn"><i className="fa-solid fa-magnifying-glass fa-xl"></i></button>
+        </div>
+        <User />
+        <NotFound />
     </>
 }
 
