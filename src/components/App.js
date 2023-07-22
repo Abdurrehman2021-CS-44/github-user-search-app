@@ -1,18 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import User from "./User";
 import NotFound from "./NotFound"
 
 const App = () => {
     const [userData, setUserData] = useState({});
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState("Abdurrehman2021-CS-44");
     const [change, setChange] = useState(false);
     const [anotherChange, setAnotherChange] = useState(false);
 
     const searchRef = useRef(null);
 
-    const getData = async () => {
-        const response = await fetch("https://api.github.com/users/"+user.split(" ").join(""));
+    const getData = async (username) => {
+        const response = await fetch("https://api.github.com/users/"+username.split(" ").join(""));
         const data = await response.json();
         setUserData(data);
     }
@@ -22,32 +22,19 @@ const App = () => {
         setUser(inputValue);
     }
 
-    const handleClick = () => {
-        if (user === ""){
-            searchRef.current.focus();
-            return;
-        }
-        getData();
-        if (userData !== {}){
-            setChange(true);
-            // setChange(userData.message !== "Not Found");
-        }
-        else {
-            setChange(false);
-        }
+    const handleClick = (e) => {
+        
+        getData(user);
+
         setAnotherChange(true);
 
-        console.log(userData);
-        console.log(userData.name);
-        console.log(userData.login);
-        console.log(userData.bio);
-        console.log(userData.followers);
-        console.log(userData.following);
-        console.log(userData.public_repos);
-        console.log(userData.location);
-        console.log(userData.html_url);
-        console.log(userData.twitter_username);
-        console.log(userData.avatar_url);
+        if (userData.message){
+            setChange(false);
+        } else {
+            setChange(true);
+        }
+
+        e.target.click();
     }
 
     return <>
